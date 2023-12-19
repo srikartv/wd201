@@ -1,32 +1,32 @@
-const todoBucket = require('../todo');
-let allTodos;
-allTodos=todoBucket();
+const todoList = require('../todo');
+let myTodos;
+myTodos = todoList();
 
-describe("TodoBucket Test Suite", () => {
+describe("Todolist Test Suite", () => {
   test("Should add new todo", () => {
-    const todoCount = allTodos.all.length;
-    allTodos.add(
+    const todoCount = myTodos.all.length;
+    myTodos.add(
       {
         title: "Test todo",
         completed: false,
         dueDate: 2023-12-18
       }
     );
-    expect(allTodos.all.length).toBe(todoCount + 1);
+    expect(myTodos.all.length).toBe(todoCount + 1);
   });
   test("Should mark a todo as complete", () => {
-    expect(allTodos.all[0].completed).toBe(false);
-    allTodos.markAsComplete(0);
-    expect(allTodos.all[0].completed).toBe(true);
+    expect(myTodos.all[0].completed).toBe(false);
+    myTodos.markAsComplete(0);
+    expect(myTodos.all[0].completed).toBe(true);
   });
   test('Should retrieve overdue items', () => {
   const today = new Date();
   const formatDate = (d) => d.toISOString().split('T')[0]
   const yesterday = formatDate(new Date(today.setDate(today.getDate() - 1)));
   const od = {title: 'Do Coding', dueDate: yesterday,completed:false};
-  const overdueTodoCount=allTodos.overdue().length;
-  allTodos.add(od);
-  const overdueItems=allTodos.overdue();
+  const overdueTodoCount=myTodos.overdue().length;
+  myTodos.add(od);
+  const overdueItems=myTodos.overdue();
   expect(overdueItems.length).toBe(overdueTodoCount+1);
  });
 
@@ -35,9 +35,9 @@ describe("TodoBucket Test Suite", () => {
   const formatDate = (d) => d.toISOString().split('T')[0];
   const todayDate = formatDate(today);
   const todayAdd={title: 'Do laundry',dueDate: todayDate,completed:false};
-  const dueTodayItemCount=allTodos.dueToday().length;
-  allTodos.add(todayAdd);
-  const todayItems = allTodos.dueToday();
+  const dueTodayItemCount=myTodos.dueToday().length;
+  myTodos.add(todayAdd);
+  const todayItems = myTodos.dueToday();
   expect(todayItems.length).toBe(dueTodayItemCount+1);
  });
 
@@ -46,8 +46,8 @@ describe("TodoBucket Test Suite", () => {
   const formatDate = (d) => d.toISOString().split('T')[0];
   const tomorrow = formatDate(new Date(today.setDate(today.getDate() + 1)));
   const dl={title:'Return a book',dueDate:tomorrow,completed:false};
-  const dueLaterTodoItemCount =allTodos.dueLater().length
-  allTodos.add(dl);
-  expect(allTodos.dueLater().length).toBe(dueLaterTodoItemCount+1);
+  const dueLaterTodoItemCount =myTodos.dueLater().length
+  myTodos.add(dl);
+  expect(myTodos.dueLater().length).toBe(dueLaterTodoItemCount+1);
  });
 });
