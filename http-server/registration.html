@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration form</title>
+        <style>
+            #Container1{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 20px;
+            }
+            #form-data{
+                display: grid;
+                row-gap: 15px;
+                column-gap: 10px;
+                text-align: left;
+                padding: 10px;
+                border: 2px;
+                border-radius: 20px;
+                box-shadow: 5px 5px 5px 5px #ccc;
+            }
+            .label{
+                grid-column: 1 /2;
+            }
+            .field{
+                grid-column: 2/3;
+            }
+            .Container2{
+                height:60%;
+                width:50%;
+                margin:0 auto;
+                border:1px solid #ccc;
+                background-color: #e6ffff;
+                line-height: 1.5;
+            }
+            table
+            {
+                width:100%;
+                border-collapse:1px;
+                text-align:center;
+            }
+            th,td{
+                padding:8px;
+                border-bottom:1px solid white;
+            }
+            button{
+                width: max-content;
+                border: none;
+                border-radius: 10px;
+                background-color:  #2196f3;
+                padding: 10px;
+            }
+            .centered-items{
+                grid-column: 1 / span 2;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
+            .centered-items * {
+                padding-bottom: 10px;
+            }
+            .check-terms{
+                display: flex;
+                flex-direction: row;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div id="Container1">
+                <h2>Registration form</h2>
+                <form id="form-data">
+                        <label for="name" class="label">Name</label>
+                        <input required type="text" class="field" id="name" name="name" placeholder="Enter full name">
+    
+                        <label for="email" class="label">Email</label>
+                        <input required type="email"  class="field" id="email" name="email" placeholder="Enter email">
+                   
+                      <label for="password" class="label">Password</label>
+                    <input required type="password"  class="field" id="password" name="password" placeholder="Enter password"> 
+
+                        <label for="dob"  class="label">Date of Birth</label>
+                        <input required type="date" id="dob"   class="field" name="dob" min="1968-08-08" max="2005-08-08"/>
+                   <div class="centered-items">
+                    <div class="check-terms">
+                        <input required type="checkbox" id="accept-terms"  name="accept-terms">
+                    <label for="accept-terms">Accept Terms & Conditions</label>
+                    </div>
+                    
+
+                <button type="submit">Submit</button>
+                   </div>
+                       
+                </form>
+            </div>
+        </div>
+        
+            <div>
+                <center>
+                    <div class="Container2">
+<h2 >Entries</h2>
+<div  id="user-info"></div>
+            </div>
+        </div>
+        </center>
+        
+        <script src="./index.js"></script>
+    </body>
+</html>
